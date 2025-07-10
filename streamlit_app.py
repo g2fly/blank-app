@@ -7,62 +7,74 @@ st.title("💰 Negotiation App")
 
 # 1️⃣  Base amount ------------------------------------------------------------
 base_price = st.number_input(
-    "Base amount",
+    "The Going Rate",
     min_value=0.00,
     value=100.00,
     step=1.00,
     format="%.2f",
 )
 
-# 2️⃣  Quick-Add buttons (10 / 20 / 30 % markup) -----------------------------
+# 2️⃣  Quick-Add buttons (10 / 20 / 30 %) ------------------------------------
+# • price_factor  → keeps Goal-Increase logic
+# • discount_pct → drives Goal-Discount logic
 if "price_factor" not in st.session_state:
-    st.session_state.price_factor = 1.00
+    st.session_state.price_factor = 1.00        # no markup by default
+if "discount_pct" not in st.session_state:
+    st.session_state.discount_pct = 0           # 0 % off by default
 
-st.write("### Quick-Add")
+st.write("### Quick Math")
 btn10, btn20, btn30 = st.columns(3)
-if btn10.button("+10 %"):
-    st.session_state.price_factor = 1.10
-if btn20.button("+20 %"):
+
+if btn10.button("10 %"):
+    st.session_state.price_factor = 1.10        # +10 % ↑
+    st.session_state.discount_pct = 10          # −10 % ↓
+if btn20.button("20 %"):
     st.session_state.price_factor = 1.20
-if btn30.button("+30 %"):
+    st.session_state.discount_pct = 20
+if btn30.button("30 %"):
     st.session_state.price_factor = 1.30
+    st.session_state.discount_pct = 30
 
-active_price = base_price * st.session_state.price_factor
+# 3️⃣  Derived goal prices ----------------------------------------------------
+goal_discount_price = base_price * (1 - st.session_state.discount_pct / 100)
+goal_increase_price = base_price * st.session_state.price_factor
 
-# 3️⃣  Price tables & green goal figures -------------------------------------
-discount_percents = [65, 85, 95, 100]
-upsell_percents   = [165, 145, 135, 100]
+# 4️⃣  Lookup percentages for the two tables ---------------------------------
+discount_percents = [65, 85, 95, 100]      # % of *discounted* price
+upsell_percents   = [165, 145, 135, 100]   # % of *goal-increase* price ← changed base
 
-goal_discount_price = active_price * min(discount_percents) / 100  # 65 % of active
-
+# 5️⃣  Layout -----------------------------------------------------------------
 left_col, right_col = st.columns(2, gap="large")
 
+# 👉 LEFT: Goal Price Discount & further discounts
 with left_col:
     st.markdown(
-        f"### Goal Price Discount: "
+        f"### Goal Price Discount "
         f"<span style='color:green'>${goal_discount_price:,.2f}</span>",
         unsafe_allow_html=True,
     )
-    st.subheader("Discounts")
+    st.subheader("Discount")
     for pct in discount_percents:
-        st.write(f"{pct}% → **${active_price * pct / 100:,.2f}**")
+        st.write(f"{pct}% → **${goal_discount_price * pct / 100:,.2f}**")
 
+# 👉 RIGHT: Goal Price Increase & upsells (now scale with selected button)
 with right_col:
     st.markdown(
-        f"### Goal Price Increase: "
-        f"<span style='color:green'>${active_price:,.2f}</span>",
+        "### Goal Price Increase\n"
+        f"<span style='color:green'>${goal_increase_price:,.2f}</span>",
         unsafe_allow_html=True,
     )
-    st.subheader("Upsells")
+    st.subheader("Upsell")
     for pct in upsell_percents:
-        st.write(f"{pct}% → **${active_price * pct / 100:,.2f}**")
+        st.write(f"{pct}% → **${goal_increase_price * pct / 100:,.2f}**")
 
+# 6️⃣  Footer -----------------------------------------------------------------
 st.caption(
-    "Learn how to negotiate by using this strategy.\n" \
-    "1. Find the market price\n" \
-    "2. Find the realistic discount or price increase. Most people don't blink an eye at 10% percent\n" \
-    "3. Use the discount or price increase from top to bottom. The first offer is a low ball or out of the park offer to prime the negotiation conversation. THEY WILL LIKEY SAY NO \n" \
-    "4. Happy Negotiating! If you have any app ideas send me a message and I can create them for free!"
+    "Negotiate smarter:\n"
+    "1. Find the market price.\n"
+    "2. Decide on a realistic discount or markup.\n"
+    "3. Lead with an anchor, then work toward your goal.\n"
+    "4. Happy negotiating!"
 )
 
 if __name__ == "__main__":
