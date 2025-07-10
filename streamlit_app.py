@@ -77,5 +77,7 @@ st.caption(
     "4. Happy negotiating! MESSAGE ME TO CREATE FREE APP IDEAS"
 )
 
+st.image("8K2A2685.jpg", use_container_width=True, caption="Hill Technologies, LLC")
+
 if __name__ == "__main__":
     pass
