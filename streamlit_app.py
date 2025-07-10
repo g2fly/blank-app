@@ -61,8 +61,8 @@ st.caption(
     "Learn how to negotiate by using this strategy.\n" \
     "1. Find the market price\n" \
     "2. Find the realistic discount or price increase. Most people don't blink an eye at 10% percent\n" \
-    "3. Use the discount or price increase from top to bottom. The first offer is a low ball or out of the park offer to prime the negotiation conversation. THEY WILL LIKEY SAY NO\n" \
-    "Happy Negotiating!"
+    "3. Use the discount or price increase from top to bottom. The first offer is a low ball or out of the park offer to prime the negotiation conversation. THEY WILL LIKEY SAY NO \n" \
+    "4. Happy Negotiating! If you have any app ideas send me a message and I can create them for free!"
 )
 
 if __name__ == "__main__":
