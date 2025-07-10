@@ -74,7 +74,7 @@ st.caption(
     "1. Find the market price.\n"
     "2. Decide on a realistic discount or markup.\n"
     "3. Lead with an anchor, then work toward your goal.\n"
-    "4. Happy negotiating!"
+    "4. Happy negotiating! MESSAGE ME TO CREATE FREE APP IDEAS"
 )
 
 if __name__ == "__main__":
