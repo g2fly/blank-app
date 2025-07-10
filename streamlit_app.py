@@ -74,7 +74,8 @@ st.caption(
     "1. Find the market price.\n"
     "2. Decide on a realistic discount or markup.\n"
     "3. Lead with an anchor, then work toward your goal.\n"
-    "4. Happy negotiating! MESSAGE ME TO CREATE FREE APP IDEAS"
+    "4. Happy negotiating! \n"
+    "5. HAVE AN IDEA? OR KNOW SOMEONE WOULD LIKE TO AUTOMATE PARTS OF THEIR BUSINESS. MESSAGE ME."
 )
 
 st.image("8K2A2685.jpg", use_container_width=True, caption="Hill Technologies, LLC")
