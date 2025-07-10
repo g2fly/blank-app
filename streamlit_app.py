@@ -60,7 +60,7 @@ with left_col:
 # 👉 RIGHT: Goal Price Increase & upsells (now scale with selected button)
 with right_col:
     st.markdown(
-        "### Goal Price Increase\n"
+        "### Goal Price Increase "
         f"<span style='color:green'>${goal_increase_price:,.2f}</span>",
         unsafe_allow_html=True,
     )
