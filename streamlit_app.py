@@ -80,7 +80,7 @@ st.caption(
 )
 
 # 7️⃣  Bottom image (optional) ------------------------------------------------
-# st.image("logo.png", use_column_width=True, caption="Powered by Negotiation Science")
+st.image("8K2A2685.jpg", use_container_width=True, caption="Powered by Hill Technologies, LLC")
 
 if __name__ == "__main__":
     pass
