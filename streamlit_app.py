@@ -21,7 +21,7 @@ base_price = st.number_input(
 )
 
 # ---- Percentage tables ------------------------------------------------------
-discount_percents = [65, 85, 95, 100]   # ⬅️ Edit here if needed
+discount_percents = [65, 85, 95, 100]   # Edit here if needed
 upsell_percents   = [165, 145, 135, 100]
 
 left_col, right_col = st.columns(2, gap="large")
