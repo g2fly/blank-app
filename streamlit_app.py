@@ -6,7 +6,7 @@ import streamlit as st
 # ---- Page setup -------------------------------------------------------------
 st.set_page_config(page_title="Negotion", page_icon="💰", layout="centered")
 
-st.title("💰 Negotion")
+st.title("💰 Negotiation App")
 
 # ---- User input -------------------------------------------------------------
 st.write("Enter a base amount and instantly see discounted and upsell prices.")
