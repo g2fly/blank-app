@@ -73,10 +73,12 @@ with right_col:
 # 6️⃣  Footer -----------------------------------------------------------------
 st.caption(
     "Negotiate smarter:\n"
-    "1. Find the market price.\n"
-    "2. Decide on a realistic discount or markup.\n"
-    "3. Lead with an anchor, then work toward your goal.\n"
-    "4. Happy negotiating! MESSAGE ME TO CREATE FREE APP IDEAS"
+    "1. Set your target price (your goal).\n"
+    "2. Set your first offer at 65 percent of your target.\n"
+    "3. Use lots of empathy and different ways of saying “No” to get the other side to counter before you increase your offer.\n"
+    "4. When calculating the final amount, use precise, non-round numbers like, say, 37,893 rather than 38,000. It gives the number credibility and weight.\n"
+    "5. On your final number, throw in a non monetary item (that they probably don’t want) to show you’re at your limit.\n"
+    "6. Happy negotiating! MESSAGE ME TO CREATE FREE APP IDEAS"
 )
 
 # 7️⃣  Bottom image (optional) ------------------------------------------------
