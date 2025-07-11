@@ -1,6 +1,8 @@
 # negotion.py
 # ---------------------------------------------------------------------------
 import streamlit as st
+import streamlit.components.v1 as components
+import time
 
 st.set_page_config(page_title="Negotion", page_icon="💰", layout="centered")
 st.title("💰 Negotiation App")
@@ -83,6 +85,32 @@ st.caption(
 
 # 7️⃣  Bottom image (optional) ------------------------------------------------
 st.image("8K2A2685.jpg", use_container_width=True, caption="Powered by Hill Technologies, LLC")
+
+# 🎉 Share With A Friend Button ----------------------------------------------
+if "copy_clicked" not in st.session_state:
+    st.session_state.copy_clicked = False
+if "last_copy_time" not in st.session_state:
+    st.session_state.last_copy_time = 0.0
+
+current_time = time.time()
+if st.session_state.copy_clicked and (current_time - st.session_state.last_copy_time > 3):
+    st.session_state.copy_clicked = False
+
+button_text = "Copied ✅" if st.session_state.copy_clicked else "📤 Share With A Friend"
+
+if st.button(button_text):
+    st.session_state.copy_clicked = True
+    st.session_state.last_copy_time = time.time()
+    st.toast("Copied to clipboard!")
+    st.balloons()
+    components.html(
+        """
+        <script>
+        navigator.clipboard.writeText(window.location.href);
+        </script>
+        """,
+        height=0,
+    )
 
 if __name__ == "__main__":
     pass
